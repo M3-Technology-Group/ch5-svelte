@@ -1,6 +1,6 @@
 {
 	"name": "ch5-svelte",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license":"Apache-2.0",
 	"scripts": {
 		"dev": "vite dev",
@@ -33,6 +33,8 @@
 			"svelte": "./dist/index.js"
 		}
 	},
+	"repository": "github:M3-Technology-Group/ch5-svelte",
+	"homepage": "https://github.com/M3-Technology-Group/ch5-svelte#crestron-ch5-wrapper-for-svelte",
 	"peerDependencies": {
 		"@crestron/ch5-crcomlib": "^2.11.1",
 		"svelte": "^5.0.0"
