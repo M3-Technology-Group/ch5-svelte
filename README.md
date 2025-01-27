@@ -163,6 +163,11 @@ Controls can now be used in any Svelte component. The following is an example of
 
 For more details on the functions provided, see the official docs for definitions and examples.
 
+- [Official Docs (GitHub Pages)](https://m3-technology-group.github.io/ch5-svelte/)
+- [Digital Signal Examples](https://m3-technology-group.github.io/ch5-svelte/documents/Digital_Signal_Examples.html)
+- [Analog Signal Examples](https://m3-technology-group.github.io/ch5-svelte/documents/Analog_Signal_Examples.html)
+- [Serial Signal Examples](https://m3-technology-group.github.io/ch5-svelte/documents/Serial_Signal_Examples.html)
+
 ## Packing for Crestron Touch Screens
 
 Crestron Touch Screens run the project from the local file system and not through a web server. This can cause issues with how resources are loaded. The easiest way to deal with this is to pack all resources into a single file. This can be done using the `vite-plugin-singlefile` plugin.
