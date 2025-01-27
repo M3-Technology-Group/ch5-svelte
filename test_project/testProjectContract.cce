@@ -1,0 +1,374 @@
+{
+	"Errors": [],
+	"id": "_mjwq1jjcr",
+	"name": "testProjectContract",
+	"description": "",
+	"company": "",
+	"client": "",
+	"author": "",
+	"version": "1.0.0.0",
+	"schemaVersion": 1,
+	"subContractLinks": [],
+	"subContracts": [],
+	"specifications": [
+		{
+			"Errors": [],
+			"parentId": "_mjwq1jjcr",
+			"id": "_7nn52kj0l",
+			"componentId": "_pio35p5ue",
+			"instanceName": "Text",
+			"numberOfInstances": 1
+		},
+		{
+			"Errors": [],
+			"parentId": "_mjwq1jjcr",
+			"id": "_4ilrp1504",
+			"componentId": "_uv3y3541t",
+			"instanceName": "Toggle",
+			"numberOfInstances": 1
+		},
+		{
+			"Errors": [],
+			"parentId": "_mjwq1jjcr",
+			"id": "_ctx2oec65",
+			"componentId": "_9vh7pwmu0",
+			"instanceName": "ramp",
+			"numberOfInstances": 1
+		},
+		{
+			"Errors": [],
+			"parentId": "_mjwq1jjcr",
+			"id": "_ol23yp5pu",
+			"componentId": "_im5vto8d3",
+			"instanceName": "checkbox",
+			"numberOfInstances": 1
+		}
+	],
+	"components": [
+		{
+			"Errors": [],
+			"parentId": "_mjwq1jjcr",
+			"id": "_pio35p5ue",
+			"name": "Text",
+			"commands": [
+				{
+					"Errors": [],
+					"name": "TextF",
+					"siblingId": "_7wko6m6ca",
+					"dataType": 3,
+					"notes": "",
+					"id": "_lyb3mg7hf",
+					"parentId": "_pio35p5ue",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_xul00mosd",
+					"dataType": 1,
+					"notes": "",
+					"id": "_w5qb0nqcz",
+					"parentId": "_pio35p5ue",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_jpad5sm26",
+					"dataType": 1,
+					"notes": "",
+					"id": "_mxu339f6z",
+					"parentId": "_pio35p5ue",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_6qfm90oq8",
+					"dataType": 1,
+					"notes": "",
+					"id": "_r01tgl3m6",
+					"parentId": "_pio35p5ue",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_mkhd6ckie",
+					"dataType": 1,
+					"notes": "",
+					"id": "_74oqdnzt7",
+					"parentId": "_pio35p5ue",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_75o7ganqh",
+					"dataType": 1,
+					"notes": "",
+					"id": "_f0cx39qf5",
+					"parentId": "_pio35p5ue",
+					"attributeType": 0
+				}
+			],
+			"feedbacks": [
+				{
+					"Errors": [],
+					"name": "Text",
+					"siblingId": "_lyb3mg7hf",
+					"dataType": 3,
+					"notes": "",
+					"id": "_7wko6m6ca",
+					"parentId": "_pio35p5ue",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "Option1",
+					"siblingId": "_w5qb0nqcz",
+					"dataType": 1,
+					"notes": "",
+					"id": "_xul00mosd",
+					"parentId": "_pio35p5ue",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "Option2",
+					"siblingId": "_mxu339f6z",
+					"dataType": 1,
+					"notes": "",
+					"id": "_jpad5sm26",
+					"parentId": "_pio35p5ue",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "Option3",
+					"siblingId": "_r01tgl3m6",
+					"dataType": 1,
+					"notes": "",
+					"id": "_6qfm90oq8",
+					"parentId": "_pio35p5ue",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "Option4",
+					"siblingId": "_74oqdnzt7",
+					"dataType": 1,
+					"notes": "",
+					"id": "_mkhd6ckie",
+					"parentId": "_pio35p5ue",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_f0cx39qf5",
+					"dataType": 1,
+					"notes": "",
+					"id": "_75o7ganqh",
+					"parentId": "_pio35p5ue",
+					"attributeType": 1
+				}
+			],
+			"specifications": []
+		},
+		{
+			"Errors": [],
+			"parentId": "_mjwq1jjcr",
+			"id": "_uv3y3541t",
+			"name": "Toggle",
+			"commands": [
+				{
+					"Errors": [],
+					"name": "Out",
+					"siblingId": "_mie8mq90w",
+					"dataType": 1,
+					"notes": "",
+					"id": "_8xeb3ehln",
+					"parentId": "_uv3y3541t",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "Not_out",
+					"siblingId": "_po14sedhk",
+					"dataType": 1,
+					"notes": "",
+					"id": "_ituc80afa",
+					"parentId": "_uv3y3541t",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_6k7krqs8o",
+					"dataType": 1,
+					"notes": "",
+					"id": "_vpwwbz5s5",
+					"parentId": "_uv3y3541t",
+					"attributeType": 0
+				}
+			],
+			"feedbacks": [
+				{
+					"Errors": [],
+					"name": "Set",
+					"siblingId": "_8xeb3ehln",
+					"dataType": 1,
+					"notes": "",
+					"id": "_mie8mq90w",
+					"parentId": "_uv3y3541t",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "Reset",
+					"siblingId": "_ituc80afa",
+					"dataType": 1,
+					"notes": "",
+					"id": "_po14sedhk",
+					"parentId": "_uv3y3541t",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "Toggle",
+					"siblingId": "_vpwwbz5s5",
+					"dataType": 1,
+					"notes": "",
+					"id": "_6k7krqs8o",
+					"parentId": "_uv3y3541t",
+					"attributeType": 1
+				}
+			],
+			"specifications": []
+		},
+		{
+			"Errors": [],
+			"parentId": "_mjwq1jjcr",
+			"id": "_im5vto8d3",
+			"name": "checkbox",
+			"commands": [
+				{
+					"Errors": [],
+					"name": "feedback",
+					"siblingId": "_9hamedkhs",
+					"dataType": 1,
+					"notes": "",
+					"id": "_bdh1pqngc",
+					"parentId": "_im5vto8d3",
+					"attributeType": 0
+				}
+			],
+			"feedbacks": [
+				{
+					"Errors": [],
+					"name": "state",
+					"siblingId": "_bdh1pqngc",
+					"dataType": 1,
+					"notes": "",
+					"id": "_9hamedkhs",
+					"parentId": "_im5vto8d3",
+					"attributeType": 1
+				}
+			],
+			"specifications": []
+		},
+		{
+			"Errors": [],
+			"parentId": "_mjwq1jjcr",
+			"id": "_9vh7pwmu0",
+			"name": "ramp",
+			"commands": [
+				{
+					"Errors": [],
+					"name": "levelF",
+					"siblingId": "_wz6gmrscu",
+					"dataType": 2,
+					"notes": "",
+					"id": "_tm7yo5rwq",
+					"parentId": "_9vh7pwmu0",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_rgrsalnu6",
+					"dataType": 1,
+					"notes": "",
+					"id": "_u9s2fw5bx",
+					"parentId": "_9vh7pwmu0",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_4mksveebf",
+					"dataType": 1,
+					"notes": "",
+					"id": "_0p3o3sm3y",
+					"parentId": "_9vh7pwmu0",
+					"attributeType": 0
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_10in44xq0",
+					"dataType": 1,
+					"notes": "",
+					"id": "_fuwbxyche",
+					"parentId": "_9vh7pwmu0",
+					"attributeType": 0
+				}
+			],
+			"feedbacks": [
+				{
+					"Errors": [],
+					"name": "level",
+					"siblingId": "_tm7yo5rwq",
+					"dataType": 2,
+					"notes": "",
+					"id": "_wz6gmrscu",
+					"parentId": "_9vh7pwmu0",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "Up",
+					"siblingId": "_u9s2fw5bx",
+					"dataType": 1,
+					"notes": "",
+					"id": "_rgrsalnu6",
+					"parentId": "_9vh7pwmu0",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "Down",
+					"siblingId": "_0p3o3sm3y",
+					"dataType": 1,
+					"notes": "",
+					"id": "_4mksveebf",
+					"parentId": "_9vh7pwmu0",
+					"attributeType": 1
+				},
+				{
+					"Errors": [],
+					"name": "",
+					"siblingId": "_fuwbxyche",
+					"dataType": 0,
+					"notes": "",
+					"id": "_10in44xq0",
+					"parentId": "_9vh7pwmu0",
+					"attributeType": 1
+				}
+			],
+			"specifications": []
+		}
+	],
+	"allComponentsForAllContracts": []
+}

@@ -1,0 +1,86 @@
+{
+	"name": "testProjectContract",
+	"timestamp": "2025-01-24 10:53:09.346",
+	"version": "1.0.0.0",
+	"schema_version": 1,
+	"extra_value": "",
+	"signals": {
+		"states": {
+			"boolean": {
+				"2": {
+					"1": "Toggle.Out",
+					"2": "Toggle.Not_out"
+				},
+				"4": {
+					"1": "checkbox.feedback"
+				}
+			},
+			"numeric": {
+				"3": {
+					"1": "ramp.levelF"
+				}
+			},
+			"string": {
+				"1": {
+					"1": "Text.TextF"
+				}
+			}
+		},
+		"events": {
+			"boolean": {
+				"Text.Option1": {
+					"joinId": 1,
+					"smartObjectId": 1
+				},
+				"Text.Option2": {
+					"joinId": 2,
+					"smartObjectId": 1
+				},
+				"Text.Option3": {
+					"joinId": 3,
+					"smartObjectId": 1
+				},
+				"Text.Option4": {
+					"joinId": 4,
+					"smartObjectId": 1
+				},
+				"Toggle.Set": {
+					"joinId": 1,
+					"smartObjectId": 2
+				},
+				"Toggle.Reset": {
+					"joinId": 2,
+					"smartObjectId": 2
+				},
+				"Toggle.Toggle": {
+					"joinId": 3,
+					"smartObjectId": 2
+				},
+				"ramp.Up": {
+					"joinId": 1,
+					"smartObjectId": 3
+				},
+				"ramp.Down": {
+					"joinId": 2,
+					"smartObjectId": 3
+				},
+				"checkbox.state": {
+					"joinId": 1,
+					"smartObjectId": 4
+				}
+			},
+			"numeric": {
+				"ramp.level": {
+					"joinId": 1,
+					"smartObjectId": 3
+				}
+			},
+			"string": {
+				"Text.Text": {
+					"joinId": 1,
+					"smartObjectId": 1
+				}
+			}
+		}
+	}
+}
