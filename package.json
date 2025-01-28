@@ -1,6 +1,7 @@
 {
 	"name": "ch5-svelte",
-	"version": "1.0.2",
+	"description": "Use the Crestron CrComLib with Svelte 5 Runes",
+	"version": "1.0.3",
 	"license":"Apache-2.0",
 	"scripts": {
 		"dev": "vite dev",

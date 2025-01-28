@@ -4,9 +4,11 @@
 
 Extend the functionality of the @crestron/ch5-crcomlib library with the power of Svelte 5 Runes. This library provides a simple and easy to use interface for using crestron signals using the svelte 5 runes API.
 
-This library does not expose any Crestron CH-5 Components directly. Instead, it provides a simple interface for using the signals from the Crestron CH-5 components in a Svelte application. There are numerous Svelte UI component libraries that provide feature rich components.
+This library does not expose any Crestron CH-5 Components directly. Instead, it provides a simple interface for using the signals from the Crestron CrComLib in a Svelte application. There are numerous Svelte UI component libraries that provide feature rich components.
 
 Note: This library is **not** sponsored, supported or endorsed by Crestron Electronics Inc. Crestron True Blue Support cannot provide support for this library, or any issues that may arise from its use.
+
+Step by step instructions for setting up a new project in video form is available on [Youtube](https://www.youtube.com/watch?v=XJNJ1wvaF4U) or by following the instructions in the [Getting Started](#getting-started) section below.
 
 ## Features
 
@@ -230,7 +232,7 @@ ch5-cli archive -p ch5-svelte -d dist/ -o ./ -c ./public/config/contract.cse2j
 
 and finally, upload the resulting `.ch5z` file to the touch panel, replace `Touch-Panel-IP` with the IP or Hostname of your touch screen.
 ```bash
-ch5-cli deploy -t touchscreen -p -H Touch-Panel-IP ch5-svelte.ch5
+ch5-cli deploy -t touchscreen -p -H Touch-Panel-IP ch5-svelte.ch5z
 ```
 
 ## SvelteKit
