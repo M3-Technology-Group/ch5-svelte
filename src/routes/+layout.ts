@@ -1,25 +1,29 @@
 import { browser } from '$app/environment';
 import { PUBLIC_CS_IP, PUBLIC_IP_ID, PUBLIC_ROOM_ID, PUBLIC_TOKEN } from '$env/static/public';
 
-//CrComlib runs in the browser attached to the window object, so we must globally disable SSR and prerendering
+// The com lib talks to the panel or Web XPanel through browser globals, so SSR and prerendering
+// are disabled for the whole app.
 export const ssr = false;
 export const prerender = false;
 
-//Crestron is naughty and binds to the window object before initialize is called, so we need to make sure that the import is also wrapped in a browser check
-//WebXPanel can be started here as well, but we need to make sure this is also done in the browser, as it binds to the window object
+// Web XPanel binds to the window object as soon as it is imported, so both the import and the
+// initialisation are wrapped in a browser check. The Ch5Svelte instance (and with it MicroComLib)
+// must exist before WebXPanel.initialize() is called, hence the import order below.
 if (browser) {
-	import('@crestron/ch5-webxpanel').then(({ getWebXPanel, runsInContainerApp }) => {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const { isActive, WebXPanel, WebXPanelConfigParams } = getWebXPanel(!runsInContainerApp());
+	import('./ch5.js')
+		.then(() => import('@crestron/ch5-webxpanel'))
+		.then(({ getWebXPanel, runsInContainerApp }) => {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			const { isActive, WebXPanel, WebXPanelConfigParams } = getWebXPanel(!runsInContainerApp());
 
-		const config: Partial<typeof WebXPanelConfigParams> = {
-			host: PUBLIC_CS_IP,
-			ipId: PUBLIC_IP_ID,
-			roomId: PUBLIC_ROOM_ID,
-			authToken: PUBLIC_TOKEN
-		};
-		if (isActive) {
-			WebXPanel.initialize(config);
-		}
-	});
+			const config: Partial<typeof WebXPanelConfigParams> = {
+				host: PUBLIC_CS_IP,
+				ipId: PUBLIC_IP_ID,
+				roomId: PUBLIC_ROOM_ID,
+				authToken: PUBLIC_TOKEN
+			};
+			if (isActive) {
+				WebXPanel.initialize(config);
+			}
+		});
 }
