@@ -1,0 +1,3 @@
+# esbuild needs its postinstall script to fetch the platform binary.
+allowBuilds:
+  esbuild: true
