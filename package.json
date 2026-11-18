@@ -1,7 +1,7 @@
 {
 	"name": "ch5-svelte",
 	"description": "Crestron CH5 signals as Svelte 5 runes. Uses MicroComLib by default, or bring your own CrComLib.",
-	"version": "2.0.0-beta.0",
+	"version": "2.0.0",
 	"license": "Apache-2.0",
 	"keywords": [
 		"crestron",
@@ -45,9 +45,6 @@
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js"
 		}
-	},
-	"publishConfig": {
-		"tag": "beta"
 	},
 	"peerDependencies": {
 		"svelte": "^5.0.0"
