@@ -8,7 +8,7 @@ Version 2 no longer depends on the Crestron `@crestron/ch5-crcomlib`. Out of the
 
 This library does not expose any Crestron CH-5 Components directly. There are numerous Svelte UI component libraries that provide feature rich components.
 
-> **Beta:** `2.0.0-beta.x` is a major, breaking release. See [MIGRATION.md](./MIGRATION.md) if you are coming from 1.x. Install it with the `beta` tag (`pnpm add ch5-svelte@beta`); `latest` still points at 1.x. 2.x provides no meaningful features for 1.x users, changes are primarily to ease project setup and to remove the dependency on the Crestron CrComLib. If you have a stable 1.x project, you can continue to use it without migrating.
+> **Upgrading from 1.x?** 2.0 is a major, breaking release. See [MIGRATION.md](./MIGRATION.md) for the step-by-step guide. 2.x provides no meaningful features for 1.x users, changes are primarily to ease project setup and to remove the dependency on the Crestron CrComLib. If you have a stable 1.x project, you can continue to use it without migrating by pinning `ch5-svelte@^1`.
 
 Note: This library is **not** sponsored, supported or endorsed by Crestron Electronics Inc. Crestron True Blue Support cannot provide support for this library, or any issues that may arise from its use.
 
@@ -52,7 +52,7 @@ At this point, you may wish to install other UI libraries or tools such as Tailw
 ### Installation
 
 ```bash
-pnpm add ch5-svelte@beta
+pnpm add ch5-svelte
 ```
 
 If you plan to use the bundled `microcomlib` (the default), there are no further steps. If you plan to use the Crestron CrComLib, see [Using the Crestron CrComLib](#using-the-crestron-crcomlib) below.

@@ -8,7 +8,7 @@ category: Guides
 
 ch5-svelte 2.0 is a breaking release. It removes the hard dependency on the Crestron `@crestron/ch5-crcomlib` and replaces the module-level functions with methods on a single `Ch5Svelte` instance that you create and export yourself. This lets you choose the signal layer: MicroComLib (the `microcomlib` package) by default, the Crestron CrComLib if you opt in, or your own.
 
-If you cannot migrate yet, stay on the 1.x release line. It remains on npm under the `latest` tag until 2.0 leaves beta.
+If you cannot migrate yet, stay on the 1.x release line by pinning the major version (`pnpm add ch5-svelte@^1`). 1.x remains available on npm.
 
 ## What changed
 
@@ -34,7 +34,7 @@ The objects returned by `useDigital`, `useAnalog` and `useSerial` are unchanged:
 ### 1. Update the package
 
 ```bash
-pnpm add ch5-svelte@beta
+pnpm add ch5-svelte@^2
 ```
 
 ### 2. Create your instance
