@@ -1,7 +1,7 @@
 {
 	"name": "ch5-svelte",
 	"description": "Crestron CH5 signals as Svelte 5 runes. Uses MicroComLib by default, or bring your own CrComLib.",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"license": "Apache-2.0",
 	"keywords": [
 		"crestron",
@@ -12,7 +12,13 @@
 		"svelte5",
 		"runes"
 	],
-	"repository": "github:M3-Technology-Group/ch5-svelte",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/M3-Technology-Group/ch5-svelte.git"
+	},
+	"bugs": {
+		"url": "https://github.com/M3-Technology-Group/ch5-svelte/issues"
+	},
 	"homepage": "https://m3-technology-group.github.io/ch5-svelte/",
 	"packageManager": "pnpm@11.21.0",
 	"type": "module",

@@ -1,9 +1,23 @@
 import { MicroComLib } from 'microcomlib';
 import { isComLib, type ComLib } from './com-lib.js';
 import { DigitalHoldTable } from './digital-hold.js';
-import { createDigitalSignal, pulseDigital, type DigitalSignal } from './digital-signals.svelte.js';
-import { createAnalogSignal, type AnalogSignal } from './analog-signals.svelte.js';
-import { createSerialSignal, type SerialSignal } from './serial-signals.svelte.js';
+import type { Ch5Contract, SignalFor } from './contract.js';
+import {
+	createDigitalSignal,
+	pulseDigital,
+	type DigitalSignal,
+	type ReadonlyDigitalSignal
+} from './digital-signals.svelte.js';
+import {
+	createAnalogSignal,
+	type AnalogSignal,
+	type ReadonlyAnalogSignal
+} from './analog-signals.svelte.js';
+import {
+	createSerialSignal,
+	type SerialSignal,
+	type ReadonlySerialSignal
+} from './serial-signals.svelte.js';
 
 /**
  * Crestron CH5 signals as Svelte 5 runes.
@@ -30,8 +44,12 @@ import { createSerialSignal, type SerialSignal } from './serial-signals.svelte.j
  * With no constructor argument the instance uses MicroComLib. Pass
  * {@link crComLibFromWindow | crComLibFromWindow()} to use the Crestron CrComLib instead, or any
  * object that implements {@link ComLib}.
+ *
+ * @typeParam C The contract whose signal names this instance accepts. Omit it to accept any signal
+ * name or join number. Supply a {@link Ch5Contract} to have every signal name checked against the
+ * contract, in the right direction and of the right type; join numbers are then rejected.
  */
-export class Ch5Svelte {
+export class Ch5Svelte<C extends Ch5Contract = Ch5Contract> {
 	/**
 	 * The com lib this instance talks to. Use it directly for anything ch5-svelte does not wrap.
 	 */
@@ -68,9 +86,19 @@ export class Ch5Svelte {
 	 * Must be called during component initialization, because it uses `$effect` to manage the
 	 * subscription.
 	 *
+	 * On a contract-typed instance, `fbSignal` must be a state and `setSignal` an event. With a state
+	 * and no event the result is a {@link ReadonlyDigitalSignal}.
+	 *
 	 * @param fbSignal Signal name in the contract file, or join number as a string, to receive feedback from.
 	 * @param setSignal Signal name or join number to write to. Defaults to `fbSignal`.
 	 */
+	useDigital<
+		S extends C['digital']['states'],
+		E extends C['digital']['events'] | undefined = undefined
+	>(
+		fbSignal: S,
+		setSignal?: E
+	): SignalFor<S, E, C['digital']['events'], DigitalSignal, ReadonlyDigitalSignal>;
 	useDigital(fbSignal: string, setSignal?: string): DigitalSignal {
 		return createDigitalSignal(this.comLib, this.#holds, fbSignal, setSignal);
 	}
@@ -85,9 +113,19 @@ export class Ch5Svelte {
 	 * Must be called during component initialization, because it uses `$effect` to manage the
 	 * subscription.
 	 *
+	 * On a contract-typed instance, `fbSignal` must be a state and `setSignal` an event. With a state
+	 * and no event the result is a {@link ReadonlyAnalogSignal}.
+	 *
 	 * @param fbSignal Signal name in the contract file, or join number as a string, to receive feedback from.
 	 * @param setSignal Signal name or join number to write to. Defaults to `fbSignal`.
 	 */
+	useAnalog<
+		S extends C['analog']['states'],
+		E extends C['analog']['events'] | undefined = undefined
+	>(
+		fbSignal: S,
+		setSignal?: E
+	): SignalFor<S, E, C['analog']['events'], AnalogSignal, ReadonlyAnalogSignal>;
 	useAnalog(fbSignal: string, setSignal?: string): AnalogSignal {
 		return createAnalogSignal(this.comLib, fbSignal, setSignal);
 	}
@@ -101,9 +139,19 @@ export class Ch5Svelte {
 	 * Must be called during component initialization, because it uses `$effect` to manage the
 	 * subscription.
 	 *
+	 * On a contract-typed instance, `fbSignal` must be a state and `setSignal` an event. With a state
+	 * and no event the result is a {@link ReadonlySerialSignal}.
+	 *
 	 * @param fbSignal Signal name in the contract file, or join number as a string, to receive feedback from.
 	 * @param setSignal Signal name or join number to write to. Defaults to `fbSignal`.
 	 */
+	useSerial<
+		S extends C['serial']['states'],
+		E extends C['serial']['events'] | undefined = undefined
+	>(
+		fbSignal: S,
+		setSignal?: E
+	): SignalFor<S, E, C['serial']['events'], SerialSignal, ReadonlySerialSignal>;
 	useSerial(fbSignal: string, setSignal?: string): SerialSignal {
 		return createSerialSignal(this.comLib, fbSignal, setSignal);
 	}
@@ -115,10 +163,10 @@ export class Ch5Svelte {
 	 * control system can drop the press if the UI disconnects. Holding an already-held signal or
 	 * releasing an unheld one does nothing.
 	 *
-	 * @param signal Signal name in the contract file, or join number as a string.
+	 * @param signal Signal name in the contract file (an event, on a contract-typed instance), or join number as a string.
 	 * @param value `true` to hold, `false` to release.
 	 */
-	setDigital(signal: string, value: boolean): void {
+	setDigital(signal: C['digital']['events'], value: boolean): void {
 		this.#holds.set(signal, value);
 	}
 
@@ -126,29 +174,29 @@ export class Ch5Svelte {
 	 * Pulse a digital signal: an instantaneous rising and falling edge. Use this for anything that
 	 * does not need a persistent hold.
 	 *
-	 * @param signal Signal name in the contract file, or join number as a string.
+	 * @param signal Signal name in the contract file (an event, on a contract-typed instance), or join number as a string.
 	 */
-	pulseDigital(signal: string): void {
+	pulseDigital(signal: C['digital']['events']): void {
 		pulseDigital(this.comLib, signal);
 	}
 
 	/**
 	 * Write an analog value without subscribing to feedback.
 	 *
-	 * @param signal Signal name in the contract file, or join number as a string.
+	 * @param signal Signal name in the contract file (an event, on a contract-typed instance), or join number as a string.
 	 * @param value Value to send, 0 to 65535.
 	 */
-	setAnalog(signal: string, value: number): void {
+	setAnalog(signal: C['analog']['events'], value: number): void {
 		this.comLib.publishEvent('n', signal, value);
 	}
 
 	/**
 	 * Write a serial value without subscribing to feedback.
 	 *
-	 * @param signal Signal name in the contract file, or join number as a string.
+	 * @param signal Signal name in the contract file (an event, on a contract-typed instance), or join number as a string.
 	 * @param value String to send.
 	 */
-	setSerial(signal: string, value: string): void {
+	setSerial(signal: C['serial']['events'], value: string): void {
 		this.comLib.publishEvent('s', signal, value);
 	}
 

@@ -79,6 +79,27 @@ The final path to the `contract.cse2j` file should be `[Project Root]/public/con
 
 Neither MicroComLib nor the CrComLib signal layer parses this file themselves; signal names are opaque strings to both. It is read by two other consumers: Web XPanel fetches `config/contract.cse2j` over HTTP to map contract names to joins in the browser (this works against `vite dev` and against a deployed `vite build` output, since Vite copies `public/` into the build verbatim), and a real Crestron touch panel resolves it natively once it is packed into the project, as described in [Packing for Crestron Touch Screens](#packing-for-crestron-touch-screens).
 
+### Typed Contracts
+
+Optionally, signal names can be checked at compile time by giving your instance a contract type. A plain `new Ch5Svelte()` still accepts any signal name or join number.
+
+```typescript
+import { Ch5Svelte, type Ch5Contract } from 'ch5-svelte';
+
+interface RoomContract extends Ch5Contract {
+	digital: { states: 'Mic.Mute'; events: 'Mic.MutePress' };
+	analog: { states: 'Mic.Level'; events: 'Mic.LevelSet' };
+	serial: { states: 'Status.Text'; events: never };
+}
+
+export const ch5 = new Ch5Svelte<RoomContract>();
+
+ch5.useDigital('Mic.Mute', 'Mic.MutePress'); // ok
+ch5.useDigital('Mic.Mutee', 'Mic.MutePress'); // error: not a digital state
+```
+
+The contract type only exists at compile time, and the `contract.cse2j` file is still required. See [Typed Contract Examples](https://m3-technology-group.github.io/ch5-svelte/documents/Typed_Contract_Examples.html) for the full details, including read-only signals, reusable components and arrays of instances.
+
 ### Web XPanel Setup
 
 WebXpanel support will need to be installed separately.
@@ -163,6 +184,7 @@ For more details on the functions provided, see the official docs for definition
 - [Digital Signal Examples](https://m3-technology-group.github.io/ch5-svelte/documents/Digital_Signal_Examples.html)
 - [Analog Signal Examples](https://m3-technology-group.github.io/ch5-svelte/documents/Analog_Signal_Examples.html)
 - [Serial Signal Examples](https://m3-technology-group.github.io/ch5-svelte/documents/Serial_Signal_Examples.html)
+- [Typed Contract Examples](https://m3-technology-group.github.io/ch5-svelte/documents/Typed_Contract_Examples.html)
 
 ## Using the Crestron CrComLib
 

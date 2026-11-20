@@ -11,6 +11,17 @@ export interface AnalogSignal {
 }
 
 /**
+ * State-only Analog Signal subscription, returned by `Ch5Svelte.useAnalog` on a contract-typed
+ * instance when it is given a state name and no event.
+ */
+export interface ReadonlyAnalogSignal {
+	/**
+	 * `$state` of the current value of the state signal.
+	 */
+	readonly value: number;
+}
+
+/**
  * @internal
  */
 export function createAnalogSignal(

@@ -134,3 +134,7 @@ If your 1.x project declared `interface Window { CrComLib: ... }` in `app.d.ts` 
 
 - The module-level exports `useDigital`, `useAnalog`, `useSerial`, `setDigital`, `setAnalog`, `setSerial` and `pulseDigital`.
 - The `@crestron/ch5-crcomlib` peer dependency.
+
+## 2.1: typed contracts
+
+2.1 adds optional compile-time checking of signal names: `new Ch5Svelte<MyContract>()`. It is opt-in and nothing changes for existing code. A plain `new Ch5Svelte()` behaves exactly as in 2.0. See [Typed Contracts](README.md#typed-contracts) in the README, and [Typed Contract Examples](examples/typed-contracts.md) for worked examples.
