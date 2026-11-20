@@ -17,6 +17,17 @@ export interface DigitalSignal {
 }
 
 /**
+ * State-only Digital Signal subscription, returned by `Ch5Svelte.useDigital` on a contract-typed
+ * instance when it is given a state name and no event. It has no `pulse`.
+ */
+export interface ReadonlyDigitalSignal {
+	/**
+	 * `$state` of the current value of the state signal.
+	 */
+	readonly value: boolean;
+}
+
+/**
  * @internal
  */
 export function createDigitalSignal(

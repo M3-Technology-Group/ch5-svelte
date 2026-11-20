@@ -11,6 +11,17 @@ export interface SerialSignal {
 }
 
 /**
+ * State-only Serial Signal subscription, returned by `Ch5Svelte.useSerial` on a contract-typed
+ * instance when it is given a state name and no event.
+ */
+export interface ReadonlySerialSignal {
+	/**
+	 * `$state` of the current value of the state signal.
+	 */
+	readonly value: string;
+}
+
+/**
  * @internal
  */
 export function createSerialSignal(
